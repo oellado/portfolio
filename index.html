@@ -5,240 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>miguelgarest</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <style>
-      /* Reset some default browser styles */
-      body,
-      h1,
-      h1 + p,
-      .gif-grid {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #fff;
-        color: black;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      /* General container */
-      .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-        flex: 1;
-      }
-
-      /* Header Styles */
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-      }
-
-      h1 {
-        font-weight: 700;
-        font-size: 1.8rem;
-        letter-spacing: 0.05em;
-        color: #aaa;
-        text-transform: uppercase;
-        transition: color 0.3s ease;
-      }
-
-      h1:hover {
-        color: black;
-      }
-
-      h1 + p {
-        font-weight: 600;
-        font-size: 0.8rem;
-        color: #ccc;
-        letter-spacing: 0.1em;
-        margin-top: 0.3em;
-        text-transform: uppercase;
-      }
-
-      /* Top Right Icons */
-      .top-right-icons {
-        display: flex;
-        gap: 15px;
-        z-index: 1000;
-        align-items: center;
-      }
-
-      .top-right-icons a {
-        display: inline-block;
-        width: 28px;
-        height: 28px;
-        color: #aaa;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .top-right-icons a:hover {
-        color: black;
-      }
-
-      .top-right-icons svg {
-        width: 100%;
-        height: 100%;
-        fill: currentColor;
-        height: 26px;
-      }
-
-      /* Gif Grid */
-      .gif-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-gap: 15px;
-        padding: 0;
-      }
-
-      .gif-grid img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 4px;
-        cursor: pointer;
-        background-color: #eee;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-        font-size: 0;
-        aspect-ratio: 1/1;
-        loading: lazy;
-      }
-
-      .gif-grid img:hover {
-        transform: scale(1.05);
-      }
-
-      /* Lightbox Styles */
-      .lightbox-backdrop {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(5px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-      }
-
-      .lightbox-backdrop.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .lightbox-content {
-        width: 85%;
-        max-width: 1000px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .lightbox-content img {
-        max-width: 85%;
-        max-height: 70vh;
-        width: auto;
-        height: auto;
-        border-radius: 8px;
-        display: block;
-        user-select: none;
-        pointer-events: none;
-        object-fit: contain;
-        margin: 0 auto;
-      }
-
-      .lightbox-nav {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        pointer-events: none;
-      }
-
-      .lightbox-nav button {
-        background: rgba(255, 255, 255, 0.7);
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        pointer-events: auto;
-        font-size: 24px;
-        line-height: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .lightbox-nav button:hover {
-        background: rgba(255, 255, 255, 1);
-      }
-
-      .lightbox-close {
-        position: absolute;
-        top: -50px;
-        right: 0;
-        background: rgba(255, 255, 255, 0.7);
-        border: none;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-        font-size: 24px;
-        line-height: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .lightbox-close:hover {
-        background: rgba(255, 255, 255, 1);
-      }
-
-      /* Footer Styles */
-      footer {
-        text-align: center;
-        font-size: 0.7rem;
-        color: #ddd;
-        padding: 20px 0;
-        margin-top: 40px;
-      }
-
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .gif-grid {
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        }
-        
-        .lightbox-content img {
-          max-width: 95%;
-          max-height: 60vh;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
@@ -263,4 +30,128 @@
           <a href="mailto:hi@miguelgarest.com" aria-label="Email">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path
-                d="M20 4H4a2 2 0 00-2 2
+                d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
+              />
+            </svg>
+          </a>
+        </div>
+      </header>
+      <div class="gif-grid" role="list">
+        <img src="gifs/0.gif" alt="0" role="listitem" tabindex="0" />
+        <img src="gifs/1.gif" alt="1" role="listitem" tabindex="0" />
+        <img src="gifs/2.gif" alt="2" role="listitem" tabindex="0" />
+        <img src="gifs/3.gif" alt="3" role="listitem" tabindex="0" />
+        <img src="gifs/4.gif" alt="gif" role="listitem" tabindex="0" />
+        <img src="gifs/5.gif" alt="gif" role="listitem" tabindex="0" />
+        <img src="gifs/6.gif" alt="gif" role="listitem" tabindex="0" />
+        <img src="gifs/7.gif" alt="gif" role="listitem" tabindex="0" />
+        <img src="gifs/8.gif" alt="gif" role="listitem" tabindex="0" />
+        <img src="gifs/9" alt="gif" role="listitem" tabindex="0" />
+        <img src="gifs/10.gif" alt="gif" role="listitem" tabindex="0" />
+      </div>
+    </div>
+
+    <!-- Lightbox markup -->
+    <div
+      class="lightbox-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+      tabindex="-1"
+    >
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <img src="" alt="" />
+        <div class="lightbox-nav">
+          <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+          <button class="lightbox-next" aria-label="Next">&#10095;</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>© Miguelgarest, 2025.</footer>
+    <script>
+      (function () {
+        const lightbox = document.querySelector(".lightbox-backdrop");
+        const lightboxImg = lightbox.querySelector("img");
+        const closeBtn = lightbox.querySelector(".lightbox-close");
+        const prevBtn = lightbox.querySelector(".lightbox-prev");
+        const nextBtn = lightbox.querySelector(".lightbox-next");
+        const gifs = Array.from(document.querySelectorAll(".gif-grid img"));
+        let currentIndex = -1;
+
+        function openLightbox(index) {
+          currentIndex = index;
+          const img = gifs[currentIndex];
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add("active");
+          lightbox.focus();
+          document.body.style.overflow = "hidden"; // prevent background scroll
+        }
+
+        function closeLightbox() {
+          lightbox.classList.remove("active");
+          lightboxImg.src = "";
+          lightboxImg.alt = "";
+          document.body.style.overflow = "";
+        }
+
+        function showPrev() {
+          if (currentIndex > 0) {
+            openLightbox(currentIndex - 1);
+          }
+        }
+
+        function showNext() {
+          if (currentIndex < gifs.length - 1) {
+            openLightbox(currentIndex + 1);
+          }
+        }
+
+        // Open lightbox on click or keyboard enter/space
+        gifs.forEach((img, i) => {
+          img.addEventListener("click", () => openLightbox(i));
+          img.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openLightbox(i);
+            }
+          });
+        });
+
+        // Close lightbox on close button or backdrop click
+        closeBtn.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+
+        // Navigation buttons
+        prevBtn.addEventListener("click", showPrev);
+        nextBtn.addEventListener("click", showNext);
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (!lightbox.classList.contains("active")) return;
+          if (e.key === "Escape") closeLightbox();
+          if (e.key === "ArrowLeft") showPrev();
+          if (e.key === "ArrowRight") showNext();
+        });
+
+        // Swipe support (basic)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+
+        lightbox.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchEndX < touchStartX - 40) showNext();
+          if (touchEndX > touchStartX + 40) showPrev();
+        });
+      })();
+    </script>
+  </body>
+</html>
