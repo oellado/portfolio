@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>miguelgarest</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="preload" href="gifs/Avocado_500px.gif" as="image" />
     <style>
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -19,7 +18,7 @@
       }
 
       .container {
-        max-width: 1200px;
+        max-width: 100%;
         margin: 20px auto;
         padding: 0 20px;
         flex: 1;
@@ -30,7 +29,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto;
       }
 
@@ -85,6 +84,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         grid-gap: 12px;
+        padding: 0 20px;
       }
 
       .gif-grid img {
