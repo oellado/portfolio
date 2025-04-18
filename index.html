@@ -3,49 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MIGUELGAREST</title>
+  <title>miguelgarest</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       background-color: #fff;
       color: black;
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+      min-height: 100vh;
     }
 
     .container {
       max-width: 1200px;
-      margin: 40px auto; /* Reduced top and bottom margin */
-      padding: 0 10px; /* Even more narrow left and right margins */
-      flex: 1; /* Let the container take up the available space */
+      margin: 20px auto;
+      padding: 0 5px;
+      flex: 1;
     }
 
-    /* Title and Icons Layout */
     .header {
       display: flex;
-      justify-content: space-between; /* Icons to the right */
+      justify-content: space-between;
       align-items: center;
       padding: 10px 0;
     }
 
     h1 {
       margin: 0;
-      font-weight: 700; /* Make it bolder */
-      font-size: 1.8rem; /* Smaller size */
+      font-weight: 700;
+      font-size: 1.8rem;
       letter-spacing: 0.05em;
-      color: #aaa;  /* Light grey color */
-      text-transform: uppercase; /* All caps */
-      transition: color 0.3s ease; /* Hover transition */
+      color: #aaa;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
     }
 
     h1:hover {
-      color: black; /* Hover color */
+      color: black;
     }
 
-    h1 + p {  /* Style the "Animator/Illustrator" text */
+    h1 + p {
       font-size: 0.8rem;
       color: #ccc;
       letter-spacing: 0.1em;
@@ -53,7 +52,6 @@
       text-transform: uppercase;
     }
 
-    /* Icons Styling */
     .top-right-icons {
       display: flex;
       gap: 15px;
@@ -64,16 +62,15 @@
       display: inline-block;
       width: 28px;
       height: 28px;
-      color: #aaa;  /* Light grey color */
+      color: #aaa;
       text-decoration: none;
-      transition: color 0.3s ease; /* Hover transition */
+      transition: color 0.3s ease;
     }
 
     .top-right-icons a:hover {
-      color: black; /* Hover color */
+      color: black;
     }
 
-    /* SVG icon styling */
     .top-right-icons svg {
       width: 100%;
       height: 100%;
@@ -95,13 +92,13 @@
       background-color: #eee;
       object-fit: cover;
       transition: transform 0.3s ease;
+      font-size: 0; /* Hide alt text */
     }
 
     .gif-grid img:hover {
       transform: scale(1.05);
     }
 
-    /* Lightbox backdrop */
     .lightbox-backdrop {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -121,26 +118,24 @@
       pointer-events: auto;
     }
 
-    /* Lightbox content - fixed square size */
     .lightbox-content {
-      width: 400px;       /* Fixed width */
-      height: 400px;      /* Fixed height (square) */
+      width: 400px;
+      height: 400px;
       position: relative;
     }
 
     .lightbox-content img {
       max-width: 100%;
       max-height: 100%;
-      width: 100%;    /* Fill the container */
-      height: 100%;   /* Fill the container */
+      width: 100%;
+      height: 100%;
       border-radius: 8px;
       display: block;
       user-select: none;
       pointer-events: none;
-      object-fit: contain;  /* Ensure image fits inside the box */
+      object-fit: contain;
     }
 
-    /* Navigation buttons */
     .lightbox-nav {
       position: absolute;
       top: 50%;
@@ -172,7 +167,6 @@
       background: rgba(255,255,255,1);
     }
 
-    /* Close button */
     .lightbox-close {
       position: absolute;
       top: -50px;
@@ -196,7 +190,6 @@
       background: rgba(255,255,255,1);
     }
 
-    /* Footer */
     footer {
       text-align: center;
       font-size: 0.7rem;
@@ -205,37 +198,29 @@
       margin-top: 40px;
     }
 
-    .gif-grid img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 4px;
-        cursor: pointer;
-        background-color: #eee;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-        font-size: 0; /* Hide alt text */
-    }
-
   </style>
+  <script>
+    // Set the document title after page load
+    window.onload = function() {
+      document.title = "miguelgarest"; // Set your desired title here
+    };
+  </script>
 </head>
 <body>
 
   <div class="container">
     <header class="header">
       <div>
-        <h1>MIGUELGAREST</h1> <!-- Your name -->
+        <h1>MIGUELGAREST</h1>
         <p>Animator/Illustrator</p>
       </div>
       <div class="top-right-icons" aria-label="Social links">
         <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <!-- Instagram SVG icon -->
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
           </svg>
         </a>
         <a href="mailto:hi@miguelgarest.com" aria-label="Email">
-          <!-- Email SVG icon -->
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
           </svg>
@@ -303,10 +288,6 @@
       </div>
     </div>
   </div>
-
-  <footer style="text-align: center; font-size: 0.7rem; color: #ddd; padding: 20px 0; margin-top: 40px;">
-    © Miguelgarest, 2025.
-  </footer>
 
   <script>
     (function() {
