@@ -15,21 +15,32 @@
 
     .container {
       max-width: 1200px;
-      margin: 80px auto 20px; /* top margin to avoid fixed icons */
+      margin: 20px auto;
       padding: 20px;
     }
 
-    /* Fixed top-left icon container */
-    .top-left-icons {
-      position: fixed;
-      top: 10px;
-      left: 10px;
+    /* Title and Icons Layout */
+    .header {
+      display: flex;
+      justify-content: space-between; /* Icons to the right */
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.2rem;
+    }
+
+    /* Fixed icons  */
+    .top-right-icons {
       display: flex;
       gap: 15px;
       z-index: 1000;
     }
 
-    .top-left-icons a {
+    .top-right-icons a {
       display: inline-block;
       width: 28px;
       height: 28px;
@@ -38,22 +49,15 @@
       transition: color 0.3s ease;
     }
 
-    .top-left-icons a:hover {
+    .top-right-icons a:hover {
       color: #555;
     }
 
     /* SVG icon styling */
-    .top-left-icons svg {
+    .top-right-icons svg {
       width: 100%;
       height: 100%;
       fill: currentColor;
-    }
-
-    /* Title below icons */
-    h1 {
-      margin: 0 0 20px 0;
-      font-weight: 700;
-      font-size: 2.2rem;
     }
 
     .gif-grid {
@@ -97,9 +101,10 @@
       pointer-events: auto;
     }
 
+    /* Lightbox content - Max size */
     .lightbox-content {
-      max-width: 90vw;
-      max-height: 90vh;
+      max-width: 80%; /* Max width */
+      max-height: 80%; /* Max height */
       position: relative;
     }
 
@@ -110,6 +115,7 @@
       display: block;
       user-select: none;
       pointer-events: none;
+      object-fit: contain;  /* Ensure image fits inside the box */
     }
 
     /* Navigation buttons */
@@ -171,24 +177,24 @@
 </head>
 <body>
 
-  <!-- Fixed icons top-left -->
-  <div class="top-left-icons" aria-label="Social links">
-    <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <!-- Instagram SVG icon -->
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
-      </svg>
-    </a>
-    <a href="mailto:hi@miguelgarest.com" aria-label="Email">
-      <!-- Email SVG icon -->
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
-      </svg>
-    </a>
-  </div>
-
   <div class="container">
-    <h1>miguelgarest</h1> <!-- Replace with your name -->
+    <header class="header">
+      <h1>miguelgarest</h1> <!-- Your name -->
+      <div class="top-right-icons" aria-label="Social links">
+        <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <!-- Instagram SVG icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
+          </svg>
+        </a>
+        <a href="mailto:hi@miguelgarest.com" aria-label="Email">
+          <!-- Email SVG icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
 
     <div class="gif-grid" role="list">
       <!-- Add your GIFs here -->
