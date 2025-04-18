@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>miguelgarest</title>
-  <link rel="preload" href="gifs/Avocado_500px.gif" as="image">
-  <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -18,9 +10,9 @@
     }
 
     .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 5px;
+      max-width: 100%; /* Make container full width */
+      margin: 0; /* Remove container margins */
+      padding: 10px; /* Minimal padding */
       flex: 1;
     }
 
@@ -57,6 +49,7 @@
       display: flex;
       gap: 15px;
       z-index: 1000;
+       margin-right: 10px; /* Add a little margin to the right */
     }
 
     .top-right-icons a {
@@ -82,6 +75,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       grid-gap: 12px;
+      padding: 10px; /* Add padding around the grid */
     }
 
     .gif-grid img {
@@ -199,6 +193,11 @@
       margin-top: 40px;
     }
 
+   /* Instagram SVG fix */
+    .top-right-icons a[href*="instagram.com"] svg {
+       position: relative;
+       top: 2px; /* Adjust this value as needed */
+    }
   </style>
   <script>
     // Set the document title after page load
@@ -252,107 +251,16 @@
       <img src="gifs/House animation_500px.gif" alt="House animation" loading="lazy" role="listitem" tabindex="0" />
       <img src="gifs/Infinite pencil_500px.gif" alt="Infinite pencil" loading="lazy" role="listitem" tabindex="0" />
       <img src="gifs/Keyboard_500px.gif" alt="Keyboard" loading="lazy" role="listitem" tabindex="0" />
-    </div>
-  </div>
-
-  <!-- Lightbox markup -->
-  <div class="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1">
-    <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="Close">&times;</button>
-      <img src="" alt="" />
-      <div class="lightbox-nav">
-        <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
-        <button class="lightbox-next" aria-label="Next">&#10095;</button>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    © Miguelgarest, 2025.
-  </footer>
-
-  <script>
-    (function() {
-      const lightbox = document.querySelector('.lightbox-backdrop');
-      const lightboxImg = lightbox.querySelector('img');
-      const closeBtn = lightbox.querySelector('.lightbox-close');
-      const prevBtn = lightbox.querySelector('.lightbox-prev');
-      const nextBtn = lightbox.querySelector('.lightbox-next');
-      const gifs = Array.from(document.querySelectorAll('.gif-grid img'));
-      let currentIndex = -1;
-
-      function openLightbox(index) {
-        currentIndex = index;
-        const img = gifs[currentIndex];
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        lightbox.focus();
-        document.body.style.overflow = 'hidden'; // prevent background scroll
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        lightboxImg.src = '';
-        lightboxImg.alt = '';
-        document.body.style.overflow = '';
-      }
-
-      function showPrev() {
-        if (currentIndex > 0) {
-          openLightbox(currentIndex - 1);
-        }
-      }
-
-      function showNext() {
-        if (currentIndex < gifs.length - 1) {
-          openLightbox(currentIndex + 1);
-        }
-      }
-
-      // Open lightbox on click or keyboard enter/space
-      gifs.forEach((img, i) => {
-        img.addEventListener('click', () => openLightbox(i));
-        img.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openLightbox(i);
-          }
-        });
-      });
-
-      // Close lightbox on close button or backdrop click
-      closeBtn.addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) closeLightbox();
-      });
-
-      // Navigation buttons
-      prevBtn.addEventListener('click', showPrev);
-      nextBtn.addEventListener('click', showNext);
-
-      // Keyboard navigation
-      document.addEventListener('keydown', e => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') showPrev();
-        if (e.key === 'ArrowRight') showNext();
-      });
-
-      // Swipe support (basic)
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      lightbox.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-
-      lightbox.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchEndX < touchStartX - 40) showNext();
-        if (touchEndX > touchStartX + 40) showPrev();
-      });
-    })();
-  </script>
-</body>
-</html>
+      <img src="gifs/Kirby,bomb,mushoom,met_500px.gif" alt="Kirby,bomb,mushroom,met" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Loop chicken_500px.gif" alt="Loop chicken" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/mexican_food_500px.gif" alt="Mexican food" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Milk 3_500px.gif" alt="Milk 3" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Multitasking_500px.gif" alt="Multitasking" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Nail Polish_500px.gif" alt="Nail Polish" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Old computer_500px.gif" alt="Old computer" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Omnibot_500px.gif" alt="Omnibot" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Petit Prince_500px.gif" alt="Petit Prince" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Pop Corn_500px.gif" alt="Pop Corn" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Rocket launch_500px.gif" alt="Rocket launch" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Running sushi_500px.gif" alt="Running sushi" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs
