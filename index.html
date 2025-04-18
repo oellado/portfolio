@@ -5,228 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>miguelgarest</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <style>
-      /* Default styles for all screen sizes */
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        background-color: #fff;
-        color: black;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      .container {
-        margin: 20px auto;
-        padding: 0 20px;
-        flex: 1;
-      }
-
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-      }
-
-      h1 {
-        margin: 0;
-        font-weight: 700;
-        font-size: 1.8rem;
-        letter-spacing: 0.05em;
-        color: #aaa;
-        text-transform: uppercase;
-        transition: color 0.3s ease;
-      }
-
-      h1:hover {
-        color: black;
-      }
-
-      h1 + p {
-        font-size: 0.8rem;
-        color: #ccc;
-        letter-spacing: 0.1em;
-        margin-top: 0.3em;
-        text-transform: uppercase;
-      }
-
-      .top-right-icons {
-        display: flex;
-        gap: 15px;
-        z-index: 1000;
-      }
-
-      .top-right-icons a {
-        display: inline-block;
-        width: 28px;
-        height: 28px;
-        color: #aaa;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .top-right-icons a:hover {
-        color: black;
-      }
-
-      .top-right-icons svg {
-        width: 100%;
-        height: 100%;
-        fill: currentColor;
-      }
-
-      .gif-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        grid-gap: 12px;
-      }
-
-      .gif-grid img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 4px;
-        cursor: pointer;
-        background-color: #eee;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-        font-size: 0; /* Hide alt text */
-      }
-
-      .gif-grid img:hover {
-        transform: scale(1.05);
-      }
-
-      .lightbox-backdrop {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(5px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-      }
-
-      .lightbox-backdrop.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .lightbox-content {
-        width: 400px;
-        height: 400px;
-        position: relative;
-      }
-
-      .lightbox-content img {
-        max-width: 100%;
-        max-height: 100%;
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-        display: block;
-        user-select: none;
-        pointer-events: none;
-        object-fit: contain;
-      }
-
-      .lightbox-nav {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        pointer-events: none;
-      }
-
-      .lightbox-nav button {
-        background: rgba(255, 255, 255, 0.7);
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        pointer-events: auto;
-        font-size: 24px;
-        line-height: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .lightbox-nav button:hover {
-        background: rgba(255, 255, 255, 1);
-      }
-
-      .lightbox-close {
-        position: absolute;
-        top: -50px;
-        right: 0;
-        background: rgba(255, 255, 255, 0.7);
-        border: none;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-        font-size: 24px;
-        line-height: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .lightbox-close:hover {
-        background: rgba(255, 255, 255, 1);
-      }
-
-      footer {
-        text-align: center;
-        font-size: 0.7rem;
-        color: #ddd;
-        padding: 20px 0;
-        margin-top: 40px;
-      }
-
-      /* Media query for screens larger than 768px (typical desktop size) */
-      @media (min-width: 768px) {
-        .container {
-          max-width: 1200px; /* Set a maximum width for larger screens */
-          padding: 0 20px; /* Adjust padding for larger screens */
-        }
-
-        .gif-grid {
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for larger screens */
-          grid-gap: 20px; /* Adjust grid gap for larger screens */
-        }
-
-        h1 {
-          font-size: 2.5rem; /* Increase font size for larger screens */
-        }
-
-        h1 + p {
-          font-size: 1rem; /* Increase font size for larger screens */
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
     <script>
       // Set the document title after page load
       window.onload = function () {
-        document.title = "miguelgarest"; // Set your desired title here
+        document.title = 'miguelgarest'; // Set your desired title here
       };
     </script>
   </head>
@@ -439,12 +222,12 @@
 
     <script>
       (function () {
-        const lightbox = document.querySelector(".lightbox-backdrop");
-        const lightboxImg = lightbox.querySelector("img");
-        const closeBtn = lightbox.querySelector(".lightbox-close");
-        const prevBtn = lightbox.querySelector(".lightbox-prev");
-        const nextBtn = lightbox.querySelector(".lightbox-next");
-        const gifs = Array.from(document.querySelectorAll(".gif-grid img"));
+        const lightbox = document.querySelector('.lightbox-backdrop');
+        const lightboxImg = lightbox.querySelector('img');
+        const closeBtn = lightbox.querySelector('.lightbox-close');
+        const prevBtn = lightbox.querySelector('.lightbox-prev');
+        const nextBtn = document.querySelector('.lightbox-next');
+        const gifs = Array.from(document.querySelectorAll('.gif-grid img'));
         let currentIndex = -1;
 
         function openLightbox(index) {
@@ -452,16 +235,16 @@
           const img = gifs[currentIndex];
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt;
-          lightbox.classList.add("active");
+          lightbox.classList.add('active');
           lightbox.focus();
-          document.body.style.overflow = "hidden"; // prevent background scroll
+          document.body.style.overflow = 'hidden'; // prevent background scroll
         }
 
         function closeLightbox() {
-          lightbox.classList.remove("active");
-          lightboxImg.src = "";
-          lightboxImg.alt = "";
-          document.body.style.overflow = "";
+          lightbox.classList.remove('active');
+          lightboxImg.src = '';
+          lightboxImg.alt = '';
+          document.body.style.overflow = '';
         }
 
         function showPrev() {
@@ -478,9 +261,9 @@
 
         // Open lightbox on click or keyboard enter/space
         gifs.forEach((img, i) => {
-          img.addEventListener("click", () => openLightbox(i));
-          img.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
+          img.addEventListener('click', () => openLightbox(i));
+          img.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
               openLightbox(i);
             }
@@ -488,32 +271,32 @@
         });
 
         // Close lightbox on close button or backdrop click
-        closeBtn.addEventListener("click", closeLightbox);
-        lightbox.addEventListener("click", (e) => {
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
           if (e.target === lightbox) closeLightbox();
         });
 
         // Navigation buttons
-        prevBtn.addEventListener("click", showPrev);
-        nextBtn.addEventListener("click", showNext);
+        prevBtn.addEventListener('click', showPrev);
+        nextBtn.addEventListener('click', showNext);
 
         // Keyboard navigation
-        document.addEventListener("keydown", (e) => {
-          if (!lightbox.classList.contains("active")) return;
-          if (e.key === "Escape") closeLightbox();
-          if (e.key === "ArrowLeft") showPrev();
-          if (e.key === "ArrowRight") showNext();
+        document.addEventListener('keydown', (e) => {
+          if (!lightbox.classList.contains('active')) return;
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') showPrev();
+          if (e.key === 'ArrowRight') showNext();
         });
 
         // Swipe support (basic)
         let touchStartX = 0;
         let touchEndX = 0;
 
-        lightbox.addEventListener("touchstart", (e) => {
+        lightbox.addEventListener('touchstart', (e) => {
           touchStartX = e.changedTouches[0].screenX;
         });
 
-        lightbox.addEventListener("touchend", (e) => {
+        lightbox.addEventListener('touchend', (e) => {
           touchEndX = e.changedTouches[0].screenX;
           if (touchEndX < touchStartX - 40) showNext();
           if (touchEndX > touchStartX + 40) showPrev();
