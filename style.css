@@ -17,11 +17,12 @@ body {
   min-height: 100vh;
 }
 
-/* General container - REMOVE max-width */
+/* General container */
 .container {
-  width: 100%; /* Take full width */
-  margin: 0; /* Remove side margins */
-  padding: 0;
+  width: 100%;
+  max-width: 1200px; /* Bring back container constraint */
+  margin: 20px auto;
+  padding: 0 20px;
   box-sizing: border-box;
   flex: 1;
 }
@@ -31,7 +32,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px; /* Add padding back in for content */
+  padding: 10px 0; /* Header padding adjustment */
 }
 
 h1 {
@@ -87,9 +88,9 @@ h1 + p {
 /* Gif Grid */
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Larger min width */
-  grid-gap: 10px;
-  padding: 20px; /* Consistent padding */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+  padding: 0;
 }
 
 .gif-grid img {
@@ -132,16 +133,17 @@ h1 + p {
 }
 
 .lightbox-content {
-  width: 81%; /* Reduced from 90% */
-  max-width: 81vw; /* Reduced from 90vw */
-  height: auto;
+  width: 85%;
+  max-width: 1000px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .lightbox-content img {
-  max-width: 72.9vw; /* Reduced by 10% */
-  max-height: 72.9vh; /* Reduced by 10% */
-  min-width: 54vw; /* Reduced by 10% */
+  max-width: 85%;
+  max-height: 70vh;
   width: auto;
   height: auto;
   border-radius: 8px;
@@ -149,8 +151,7 @@ h1 + p {
   user-select: none;
   pointer-events: none;
   object-fit: contain;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  margin: 0 auto;
 }
 
 .lightbox-nav {
@@ -216,9 +217,14 @@ footer {
   margin-top: 40px;
 }
 
-/* Tall screen optimization */
-@media (min-height: 800px) {
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gif-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
   .lightbox-content img {
-    max-height: 76.5vh; /* Reduced by 10% */
+    max-width: 95%;
+    max-height: 60vh;
   }
 }
