@@ -31,9 +31,15 @@
       margin: 0;
       font-weight: 700;
       font-size: 2.2rem;
+      color: #aaa;  /* Light grey color */
+      transition: color 0.3s ease; /* Hover transition */
     }
 
-    /* Fixed icons  */
+    h1:hover {
+      color: black; /* Hover color */
+    }
+
+    /* Icons Styling */
     .top-right-icons {
       display: flex;
       gap: 15px;
@@ -44,13 +50,13 @@
       display: inline-block;
       width: 28px;
       height: 28px;
-      color: black;
+      color: #aaa;  /* Light grey color */
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease; /* Hover transition */
     }
 
     .top-right-icons a:hover {
-      color: #555;
+      color: black; /* Hover color */
     }
 
     /* SVG icon styling */
@@ -101,10 +107,10 @@
       pointer-events: auto;
     }
 
-    /* Lightbox content - Max size */
+    /* Lightbox content - smaller max size */
     .lightbox-content {
-      max-width: 80%; /* Max width */
-      max-height: 80%; /* Max height */
+      max-width: 70%;  /* Reduced max width */
+      max-height: 70%;  /* Reduced max height */
       position: relative;
     }
 
