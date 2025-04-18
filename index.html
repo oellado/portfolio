@@ -1,132 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>miguelgarest</title>
-    <meta name="description" content="Portfolio of Miguel Garest – Animator & Illustrator">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <div>
-                <h1>MIGUELGAREST</h1>
-                <p>ANIMATOR / ILLUSTRATOR</p>
-            </div>
-            <div class="top-right-icons" aria-label="Social links">
-                <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <!-- Clean, modern Instagram SVG -->
-                    <svg width="24" height="24" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M349.33 69.33H162.67C109.2 69.33 69.33 109.2 69.33 162.67v186.66c0 53.47 39.87 93.34 93.34 93.34h186.66c53.47 0 93.34-39.87 93.34-93.34V162.67c0-53.47-39.87-93.34-93.34-93.34zM464 162.67v186.66C464 405.8 405.8 464 349.33 464H162.67C106.2 464 48 405.8 48 349.33V162.67C48 106.2 106.2 48 162.67 48h186.66C405.8 48 464 106.2 464 162.67z"/>
-                        <path d="M377.6 134.4a28.8 28.8 0 1 0 0 57.6 28.8 28.8 0 0 0 0-57.6zM256 170.67a85.33 85.33 0 1 0 0 170.66 85.33 85.33 0 0 0 0-170.66zm0 142.66a57.33 57.33 0 1 1 0-114.66 57.33 57.33 0 0 1 0 114.66z"/>
-                    </svg>
-                </a>
-                <a href="mailto:hi@miguelgarest.com" aria-label="Email">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
-                    </svg>
-                </a>
-            </div>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Oellado</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="site-title">OELLADO</h1>
+      <h2 class="site-subtitle">PORTFOLIO</h2>
+      <div class="social-links">
+        <a href="mailto:oellado@gmail.com" class="social-button">Email</a>
+        <a href="https://instagram.com/oellado" class="social-button" target="_blank">Instagram</a>
+      </div>
+    </header>
 
-        <div class="gif-grid" role="list">
-            <img src="gifs/Avocado_500px.gif" alt="Avocado" role="listitem" tabindex="0">
-            <img src="gifs/banana_500px.gif" alt="Banana" role="listitem" tabindex="0">
-            <img src="gifs/Bob omb_500px.gif" alt="Bob omb" role="listitem" tabindex="0">
-            <img src="gifs/Boba_500px.gif" alt="Boba" role="listitem" tabindex="0">
-            <!-- Add more images as you wish -->
-        </div>
-    </div>
-
-    <div class="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1">
-        <div class="lightbox-content">
-            <button class="lightbox-close" aria-label="Close">&times;</button>
-            <img src="" alt="">
-            <div class="lightbox-nav">
-                <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
-                <button class="lightbox-next" aria-label="Next">&#10095;</button>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        © Miguelgarest, 2025.
-    </footer>
-
-    <script>
-        (function () {
-            const lightbox = document.querySelector('.lightbox-backdrop');
-            const lightboxImg = lightbox.querySelector('img');
-            const closeBtn = lightbox.querySelector('.lightbox-close');
-            const prevBtn = lightbox.querySelector('.lightbox-prev');
-            const nextBtn = lightbox.querySelector('.lightbox-next');
-            const gifs = Array.from(document.querySelectorAll('.gif-grid img'));
-            let currentIndex = -1;
-
-            function openLightbox(index) {
-                currentIndex = index;
-                const img = gifs[currentIndex];
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-                lightbox.classList.add('active');
-                lightbox.focus();
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                lightboxImg.src = '';
-                lightboxImg.alt = '';
-                document.body.style.overflow = '';
-            }
-
-            function showPrev() {
-                if (currentIndex > 0) openLightbox(currentIndex - 1);
-            }
-
-            function showNext() {
-                if (currentIndex < gifs.length - 1) openLightbox(currentIndex + 1);
-            }
-
-            gifs.forEach((img, i) => {
-                img.addEventListener('click', () => openLightbox(i));
-                img.addEventListener('keydown', e => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        openLightbox(i);
-                    }
-                });
-            });
-
-            closeBtn.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', e => {
-                if (e.target === lightbox) closeLightbox();
-            });
-
-            prevBtn.addEventListener('click', showPrev);
-            nextBtn.addEventListener('click', showNext);
-
-            document.addEventListener('keydown', e => {
-                if (!lightbox.classList.contains('active')) return;
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrev();
-                if (e.key === 'ArrowRight') showNext();
-            });
-
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            lightbox.addEventListener('touchstart', e => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-
-            lightbox.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                if (touchEndX < touchStartX - 40) showNext();
-                if (touchEndX > touchStartX + 40) showPrev();
-            });
-        })();
-    </script>
-</body>
+    <main>
+      <section class="gif-grid" role="list">
+        <!-- Add all your gif file names below -->
+        <img src="gifs/0.gif" alt="0" />
+        <img src="gifs/1.gif" alt="1" />
+        <img src="gifs/2.gif" alt="2" />
+        <img src="gifs/5.gif" alt="5" />
+        <img src="gifs/Avocado_500px.gif" alt="Avocado" />
+        <img src="gifs/Bob omb_500px.gif" alt="Bob omb" />
+        <img src="gifs/Boba_500px.gif" alt="Boba" />
+        <img src="gifs/Box game_500px.png" alt="Box game" />
+        <img src="gifs/Brushes_500px.gif" alt="Brushes" />
+        <img src="gifs/Candy man_500px.png" alt="Candy man" />
+        <img src="gifs/Cherries_500px.gif" alt="Cherries" />
+        <img src="gifs/Chicken egg_500px.gif" alt="Chicken egg" />
+        <img src="gifs/Chocolate_500px.gif" alt="Chocolate" />
+        <img src="gifs/Coffee cup slide_500px.gif" alt="Coffee cup slide" />
+        <img src="gifs/Coffee_500px.gif" alt="Coffee" />
+        <img src="gifs/Cow jump_500px.gif" alt="Cow jump" />
+        <img src="gifs/Football_500px.gif" alt="Football" />
+        <img src="gifs/Fried egg_500px.gif" alt="Fried egg" />
+        <img src="gifs/Fuji beats_500px.gif" alt="Fuji beats" />
+        <img src="gifs/Hands bracelets_500px.gif" alt="Hands bracelets" />
+        <img src="gifs/Hands_500px.gif" alt="Hands" />
+        <img src="gifs/House animation_500px.gif" alt="House animation" />
+        <img src="gifs/Infinite pencil_500px.gif" alt="Infinite pencil" />
+        <img src="gifs/Keyboard_500px.gif" alt="Keyboard" />
+        <img src="gifs/Kirby,bomb,mushoom,met_500px.gif" alt="Kirby bomb mushroom met" />
+        <img src="gifs/Loop chicken_500px.gif" alt="Loop chicken" />
+        <img src="gifs/Milk 3_500px.gif" alt="Milk 3" />
+        <img src="gifs/Multitasking_500px.gif" alt="Multitasking" />
+        <img src="gifs/Nail Polish_500px.gif" alt="Nail Polish" />
+        <img src="gifs/Old computer_500px.gif" alt="Old computer" />
+        <img src="gifs/Omnibot_500px.gif" alt="Omnibot" />
+        <img src="gifs/Petit Prince_500px.gif" alt="Petit Prince" />
+        <img src="gifs/Pop Corn_500px.gif" alt="Pop Corn" />
+        <img src="gifs/Rocket launch_500px.gif" alt="Rocket launch" />
+        <img src="gifs/Running sushi_500px.gif" alt="Running sushi" />
+        <img src="gifs/Sushi 1_500px.gif" alt="Sushi 1" />
+        <img src="gifs/Sushi cubes_500px.png" alt="Sushi cubes" />
+        <img src="gifs/Sushi set_500px.gif" alt="Sushi set" />
+        <img src="gifs/Sushi walk_500px.gif" alt="Sushi walk" />
+        <img src="gifs/Tamago sleep_500px.gif" alt="Tamago sleep" />
+        <img src="gifs/Toast and egg_500px.gif" alt="Toast and egg" />
+        <img src="gifs/Toaster_500px.gif" alt="Toaster" />
+        <img src="gifs/Tokyo Tower_500px.gif" alt="Tokyo Tower" />
+        <img src="gifs/Tools_500px.gif" alt="Tools" />
+        <img src="gifs/Washing machine_500px.gif" alt="Washing machine" />
+        <img src="gifs/banana_500px.gif" alt="Banana" />
+        <img src="gifs/coconut_500px.gif" alt="Coconut" />
+        <img src="gifs/mexican_food_500px.gif" alt="Mexican food" />
+        <img src="gifs/xmas gift_500px.gif" alt="Xmas gift" />
+        <img src="gifs/xmas tree_500px.gif" alt="Xmas tree" />
+      </section>
+    </main>
+  </body>
 </html>
