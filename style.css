@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: 0 10px; /* Reduced side margins */
 }
 
 /* General container */
@@ -22,7 +23,7 @@ body {
   width: 100%; /* Take up the full width */
   max-width: 1200px; /* But don't exceed this */
   margin: 20px auto; /* Center the content */
-  padding: 0 20px; /* Add some horizontal padding */
+  padding: 0; /* Removed padding from the container */
   box-sizing: border-box; /* Include padding in width */
   flex: 1; /* Allow it to grow */
 }
@@ -32,7 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px 20px; /* Added padding for the header */
 }
 
 h1 {
@@ -62,6 +63,7 @@ h1 + p {
   display: flex;
   gap: 15px;
   z-index: 1000;
+  align-items: center; /* Vertically align the icons */
 }
 
 .top-right-icons a {
@@ -88,6 +90,7 @@ h1 + p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Increased size */
   grid-gap: 12px;
+  padding: 0 20px; /* Added padding for the grid */
 }
 
 .gif-grid img {
