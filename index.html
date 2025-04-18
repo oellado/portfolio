@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Test Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist name</title>  <!-- Replace "Your Name" -->
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 1200px; /* Adjust as needed */
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .gif-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+      grid-gap: 10px;
+    }
+
+    .gif-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, this is my test portfolio!</h1>
-  <p>Welcome to my GitHub Pages test site.</p>
+  <div class="container">
+    <h1>Your Name</h1>  <!-- Replace "Your Name" -->
+    <div class="gif-grid">
+      <img src="path/to/your/gif1.gif" alt="GIF 1"> <!-- Replace path -->
+      <img src="path/to/your/gif2.gif" alt="GIF 2"> <!-- Replace path -->
+      <img src="path/to/your/gif3.gif" alt="GIF 3"> <!-- Replace path -->
+      <!-- Add more GIFs as needed -->
+    </div>
+  </div>
 </body>
 </html>
-Add index.html
