@@ -6,6 +6,7 @@
     <title>miguelgarest</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <style>
+      /* Default styles for all screen sizes */
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
@@ -15,11 +16,11 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        padding: 0 20px;
       }
 
       .container {
         margin: 20px auto;
+        padding: 0 20px;
         flex: 1;
       }
 
@@ -199,6 +200,27 @@
         color: #ddd;
         padding: 20px 0;
         margin-top: 40px;
+      }
+
+      /* Media query for screens larger than 768px (typical desktop size) */
+      @media (min-width: 768px) {
+        .container {
+          max-width: 1200px; /* Set a maximum width for larger screens */
+          padding: 0 20px; /* Adjust padding for larger screens */
+        }
+
+        .gif-grid {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for larger screens */
+          grid-gap: 20px; /* Adjust grid gap for larger screens */
+        }
+
+        h1 {
+          font-size: 2.5rem; /* Increase font size for larger screens */
+        }
+
+        h1 + p {
+          font-size: 1rem; /* Increase font size for larger screens */
+        }
       }
     </style>
     <script>
@@ -404,12 +426,10 @@
       tabindex="-1"
     >
       <div class="lightbox-content">
-        <button class="lightbox-close" aria-label="Close">×</button>
+        <button class="lightbox-close" aria-label="Close">&times;</button>
         <img src="" alt="" />
         <div class="lightbox-nav">
-          <button class="lightbox-prev" aria-label="Previous">
-            &#10094;
-          </button>
+          <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
           <button class="lightbox-next" aria-label="Next">&#10095;</button>
         </div>
       </div>
