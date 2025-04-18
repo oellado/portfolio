@@ -1,79 +1,129 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
   background: #fff;
   color: #333;
 }
 
-header {
-  text-align: center;
-  padding: 2rem 1rem 1rem;
+.container {
+  padding: 2rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.site-title,
-.site-subtitle {
-  text-transform: uppercase;
-  color: #aaa;
-  transition: color 0.3s;
-  margin: 0;
-}
-
-.site-title {
-  font-size: 2.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.site-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.site-title:hover,
-.site-subtitle:hover {
-  color: #000;
-}
-
-.social-links {
+.header {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.social-button {
-  text-decoration: none;
-  border: 1px solid #000;
+.header h1,
+.header p {
+  color: #bbb;
+  text-transform: uppercase;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+.header h1:hover,
+.header p:hover {
   color: #000;
-  padding: 0.5rem 1rem;
+}
+
+.header p {
+  margin-top: 0.3rem;
   font-size: 1rem;
-  transition: background 0.3s, color 0.3s;
 }
 
-.social-button:hover {
-  background: #000;
-  color: #fff;
+.top-right-icons a {
+  margin-left: 1rem;
+  color: #333;
+  transition: opacity 0.3s;
 }
 
-main {
-  padding: 1rem 3vw;
+.top-right-icons a:hover {
+  opacity: 0.7;
 }
 
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .gif-grid img {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border-radius: 8px;
 }
 
 .gif-grid img:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.lightbox-backdrop.active {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.lightbox-close {
+  top: 1rem;
+  right: 1rem;
+}
+
+.lightbox-prev {
+  left: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: -3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #999;
 }
