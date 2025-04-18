@@ -1,0 +1,230 @@
+/* Reset some default browser styles */
+body,
+h1,
+h1 + p,
+.gif-grid {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: black;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* General container */
+.container {
+  width: 100%;
+  max-width: 1400px; /* Bring back container constraint */
+  margin: 20px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0; /* Header padding adjustment */
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: #aaa;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+h1:hover {
+  color: black;
+}
+
+h1 + p {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #ccc;
+  letter-spacing: 0.1em;
+  margin-top: 0.3em;
+  text-transform: uppercase;
+}
+
+/* Top Right Icons */
+.top-right-icons {
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
+  align-items: center;
+}
+
+.top-right-icons a {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.top-right-icons a:hover {
+  color: black;
+}
+
+.top-right-icons svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  height: 26px;
+}
+
+/* Gif Grid */
+.gif-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+  padding: 0;
+}
+
+.gif-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #eee;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  font-size: 0;
+}
+
+.gif-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox Styles */
+.lightbox-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  width: 85%;
+  max-width: 1000px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-width: 85%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.lightbox-nav button {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  pointer-events: auto;
+  font-size: 24px;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.lightbox-nav button:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #ddd;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gif-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .lightbox-content img {
+    max-width: 95%;
+    max-height: 60vh;
+  }
+}
