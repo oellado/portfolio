@@ -11,12 +11,16 @@
       background-color: #fff;
       color: black;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
     }
 
     .container {
       max-width: 1200px;
       margin: 40px auto; /* Reduced top and bottom margin */
-      padding: 0 20px; /* Reduced side margin */
+      padding: 0 10px; /* Even more narrow left and right margins */
+      flex: 1; /* Let the container take up the available space */
     }
 
     /* Title and Icons Layout */
@@ -29,7 +33,7 @@
 
     h1 {
       margin: 0;
-      font-weight: 500; /* Less bold */
+      font-weight: 700; /* Make it bolder */
       font-size: 1.8rem; /* Smaller size */
       letter-spacing: 0.05em;
       color: #aaa;  /* Light grey color */
@@ -201,6 +205,18 @@
       margin-top: 40px;
     }
 
+    .gif-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #eee;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        font-size: 0; /* Hide alt text */
+    }
+
   </style>
 </head>
 <body>
@@ -288,7 +304,7 @@
     </div>
   </div>
 
-  <footer>
+  <footer style="text-align: center; font-size: 0.7rem; color: #ddd; padding: 20px 0; margin-top: 40px;">
     © Miguelgarest, 2025.
   </footer>
 
