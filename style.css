@@ -100,7 +100,6 @@ h1 + p {
   object-fit: cover;
   transition: transform 0.3s ease;
   font-size: 0; /* Hide alt text */
-  /* Remove any optimization-related properties */
 }
 
 .gif-grid img:hover {
