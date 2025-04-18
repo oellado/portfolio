@@ -15,17 +15,17 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0 5px; /* Further reduced side margins */
+  padding: 0; /* Removed 5px padding */
 }
 
 /* General container */
 .container {
-  width: 100%; /* Take up the full width */
-  max-width: 1200px; /* But don't exceed this */
-  margin: 20px auto; /* Center the content */
-  padding: 0; /* Removed padding from the container */
-  box-sizing: border-box; /* Include padding in width */
-  flex: 1; /* Allow it to grow */
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 5px; /* Added minimal padding */
+  box-sizing: border-box;
+  flex: 1;
 }
 
 /* Header Styles */
@@ -33,7 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; /* Added padding for the header */
+  padding: 10px 10px; /* Reduced side padding */
 }
 
 h1 {
@@ -63,7 +63,7 @@ h1 + p {
   display: flex;
   gap: 15px;
   z-index: 1000;
-  align-items: center; /* Vertically align the icons */
+  align-items: center;
 }
 
 .top-right-icons a {
@@ -83,15 +83,15 @@ h1 + p {
   width: 100%;
   height: 100%;
   fill: currentColor;
-  height: 26px; /* Fixes instagram logo size */
+  height: 26px;
 }
 
 /* Gif Grid */
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Increased size */
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   grid-gap: 12px;
-  padding: 0 20px; /* Added padding for the grid */
+  padding: 0 10px; /* Reduced side padding */
 }
 
 .gif-grid img {
@@ -103,14 +103,14 @@ h1 + p {
   background-color: #eee;
   object-fit: cover;
   transition: transform 0.3s ease;
-  font-size: 0; /* Hide alt text */
+  font-size: 0;
 }
 
 .gif-grid img:hover {
   transform: scale(1.05);
 }
 
-/* Lightbox Styles  */
+/* Lightbox Styles */
 .lightbox-backdrop {
   position: fixed;
   top: 0;
@@ -134,22 +134,25 @@ h1 + p {
 }
 
 .lightbox-content {
-  width: 80%; /* Increased lightbox size */
-  max-width: 800px; /* Maximum width for the lightbox */
-  height: auto; /* Adjust height to maintain aspect ratio */
+  width: 90%; /* Increased from 80% */
+  max-width: 90vw; /* Viewport-based max width */
+  height: auto;
   position: relative;
 }
 
 .lightbox-content img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto; /* Adjust width to maintain aspect ratio */
-  height: auto; /* Adjust height to maintain aspect ratio */
+  max-width: 80vw; /* Increased max dimensions */
+  max-height: 80vh;
+  min-width: 60vw; /* Prevents small images */
+  width: auto;
+  height: auto;
   border-radius: 8px;
   display: block;
   user-select: none;
   pointer-events: none;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .lightbox-nav {
@@ -206,11 +209,18 @@ h1 + p {
   background: rgba(255, 255, 255, 1);
 }
 
-/* Footer Styles (No changes) */
+/* Footer Styles */
 footer {
   text-align: center;
   font-size: 0.7rem;
   color: #ddd;
   padding: 20px 0;
   margin-top: 40px;
+}
+
+/* Tall screen optimization */
+@media (min-height: 800px) {
+  .lightbox-content img {
+    max-height: 85vh;
+  }
 }
