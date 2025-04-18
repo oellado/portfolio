@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 20px auto;
   padding: 0 20px;
   flex: 1;
@@ -21,7 +21,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
