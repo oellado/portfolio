@@ -86,7 +86,7 @@ h1 + p {
 /* Gif Grid */
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Increased size */
   grid-gap: 12px;
 }
 
@@ -100,6 +100,7 @@ h1 + p {
   object-fit: cover;
   transition: transform 0.3s ease;
   font-size: 0; /* Hide alt text */
+  /* Remove any optimization-related properties */
 }
 
 .gif-grid img:hover {
