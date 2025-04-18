@@ -1,300 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>miguelgarest</title>
-  <link rel="preload" href="gifs/Avocado_500px.gif" as="image">
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: black;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 80px auto 20px; /* top margin to avoid fixed icons */
-      padding: 20px;
-    }
-
-    /* Fixed top-left icon container */
-    .top-left-icons {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      display: flex;
-      gap: 15px;
-      z-index: 1000;
-    }
-
-    .top-left-icons a {
-      display: inline-block;
-      width: 28px;
-      height: 28px;
-      color: black;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .top-left-icons a:hover {
-      color: #555;
-    }
-
-    /* SVG icon styling */
-    .top-left-icons svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-    }
-
-    /* Title below icons */
-    h1 {
-      margin: 0 0 20px 0;
-      font-weight: 700;
-      font-size: 2.2rem;
-    }
-
-    .gif-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      grid-gap: 12px;
-    }
-
-    .gif-grid img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 4px;
-      cursor: pointer;
-      background-color: #eee;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .gif-grid img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Lightbox backdrop */
-    .lightbox-backdrop {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(5px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .lightbox-backdrop.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .lightbox-content {
-      max-width: 90vw;
-      max-height: 90vh;
-      position: relative;
-    }
-
-    .lightbox-content img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 8px;
-      display: block;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    /* Navigation buttons */
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .lightbox-nav button {
-      background: rgba(255,255,255,0.7);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      pointer-events: auto;
-      font-size: 24px;
-      line-height: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .lightbox-nav button:hover {
-      background: rgba(255,255,255,1);
-    }
-
-    /* Close button */
-    .lightbox-close {
-      position: absolute;
-      top: -50px;
-      right: 0;
-      background: rgba(255,255,255,0.7);
-      border: none;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      cursor: pointer;
-      font-size: 24px;
-      line-height: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      user-select: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .lightbox-close:hover {
-      background: rgba(255,255,255,1);
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>miguelgarest</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Fixed icons top-left -->
-  <div class="top-left-icons" aria-label="Social links">
-    <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <!-- Instagram SVG icon -->
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
-      </svg>
-    </a>
-    <a href="mailto:hi@miguelgarest.com" aria-label="Email">
-      <!-- Email SVG icon -->
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
-      </svg>
-    </a>
-  </div>
-
-  <div class="container">
-    <h1>miguelgarest</h1> <!-- Replace with your name -->
-
-    <div class="gif-grid" role="list">
-      <!-- Add your GIFs here -->
-      <img src="gifs/0.gif" alt="GIF 0" role="listitem" tabindex="0" />
-      <img src="gifs/1.gif" alt="GIF 1" role="listitem" tabindex="0" />
-      <img src="gifs/2.gif" alt="GIF 2" role="listitem" tabindex="0" />
-      <img src="gifs/5.gif" alt="GIF 5" role="listitem" tabindex="0" />
-      <!-- Add more GIFs as needed -->
+    <div class="container">
+        <header class="header">
+            <div>
+                <h1>MIGUELGAREST</h1>
+                <p>Animator/Illustrator</p>
+            </div>
+            <div class="top-right-icons" aria-label="Social links">
+                <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z" />
+                    </svg>
+                </a>
+                <a href="mailto:hi@miguelgarest.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z" />
+                    </svg>
+                </a>
+            </div>
+        </header>
+        <div class="gif-grid" role="list">
+            <img src="gifs/Avocado_500px.gif" alt="Avocado" role="listitem" tabindex="0" />
+            <img src="gifs/banana_500px.gif" alt="Banana" role="listitem" tabindex="0" />
+            <img src="gifs/Bob omb_500px.gif" alt="Bob omb" role="listitem" tabindex="0" />
+            <img src="gifs/Boba_500px.gif" alt="Boba" role="listitem" tabindex="0" />
+            <img src="gifs/Box game_500px.png" alt="Box game" role="listitem" tabindex="0" />
+            <img src="gifs/Brushes_500px.gif" alt="Brushes" role="listitem" tabindex="0" />
+            <img src="gifs/Candy man_500px.png" alt="Candy man" role="listitem" tabindex="0" />
+            <img src="gifs/Cherries_500px.gif" alt="Cherries" role="listitem" tabindex="0" />
+            <img src="gifs/Chicken egg_500px.gif" alt="Chicken egg" role="listitem" tabindex="0" />
+            <img src="gifs/Chocolate_500px.gif" alt="Chocolate" role="listitem" tabindex="0" />
+            <img src="gifs/coconut_500px.gif" alt="Coconut" role="listitem" tabindex="0" />
+            <img src="gifs/Coffee cup slide_500px.gif" alt="Coffee cup slide" role="listitem" tabindex="0" />
+            <img src="gifs/Coffee_500px.gif" alt="Coffee" role="listitem" tabindex="0" />
+            <img src="gifs/Cow jump_500px.gif" alt="Cow jump" role="listitem" tabindex="0" />
+            <img src="gifs/Football_500px.gif" alt="Football" role="listitem" tabindex="0" />
+            <img src="gifs/Fried egg_500px.gif" alt="Fried egg" role="listitem" tabindex="0" />
+            <img src="gifs/Fuji beats_500px.gif" alt="Fuji beats" role="listitem" tabindex="0" />
+            <img src="gifs/Hands bracelets_500px.gif" alt="Hands bracelets" role="listitem" tabindex="0" />
+            <img src="gifs/Hands_500px.gif" alt="Hands" role="listitem" tabindex="0" />
+            <img src="gifs/House animation_500px.gif" alt="House animation" role="listitem" tabindex="0" />
+            <img src="gifs/Infinite pencil_500px.gif" alt="Infinite pencil" role="listitem" tabindex="0" />
+            <img src="gifs/Keyboard_500px.gif" alt="Keyboard" role="listitem" tabindex="0" />
+        </div>
     </div>
-  </div>
 
-  <!-- Lightbox markup -->
-  <div class="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1">
-    <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="Close">&times;</button>
-      <img src="" alt="" />
-      <div class="lightbox-nav">
-        <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
-        <button class="lightbox-next" aria-label="Next">&#10095;</button>
-      </div>
+    <!-- Lightbox markup -->
+    <div class="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close">&times;</button>
+            <img src="" alt="" />
+            <div class="lightbox-nav">
+                <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+                <button class="lightbox-next" aria-label="Next">&#10095;</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    (function() {
-      const lightbox = document.querySelector('.lightbox-backdrop');
-      const lightboxImg = lightbox.querySelector('img');
-      const closeBtn = lightbox.querySelector('.lightbox-close');
-      const prevBtn = lightbox.querySelector('.lightbox-prev');
-      const nextBtn = document.querySelector('.lightbox-next');
-      const gifs = Array.from(document.querySelectorAll('.gif-grid img'));
-      let currentIndex = -1;
+    <footer>
+        © Miguelgarest, 2025.
+    </footer>
 
-      function openLightbox(index) {
-        currentIndex = index;
-        const img = gifs[currentIndex];
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        lightbox.focus();
-        document.body.style.overflow = 'hidden'; // prevent background scroll
-      }
+    <script>
+        (function() {
+            const lightbox = document.querySelector('.lightbox-backdrop');
+            const lightboxImg = lightbox.querySelector('img');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const prevBtn = lightbox.querySelector('.lightbox-prev');
+            const nextBtn = lightbox.querySelector('.lightbox-next');
+            const gifs = Array.from(document.querySelectorAll('.gif-grid img'));
+            let currentIndex = -1;
 
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        lightboxImg.src = '';
-        lightboxImg.alt = '';
-        document.body.style.overflow = '';
-      }
+            function openLightbox(index) {
+                currentIndex = index;
+                const img = gifs[currentIndex];
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                lightbox.focus();
+                document.body.style.overflow = 'hidden'; // prevent background scroll
+            }
 
-      function showPrev() {
-        if (currentIndex > 0) {
-          openLightbox(currentIndex - 1);
-        }
-      }
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightboxImg.src = '';
+                lightboxImg.alt = '';
+                document.body.style.overflow = '';
+            }
 
-      function showNext() {
-        if (currentIndex < gifs.length - 1) {
-          openLightbox(currentIndex + 1);
-        }
-      }
+            function showPrev() {
+                if (currentIndex > 0) {
+                    openLightbox(currentIndex - 1);
+                }
+            }
 
-      // Open lightbox on click or keyboard enter/space
-      gifs.forEach((img, i) => {
-        img.addEventListener('click', () => openLightbox(i));
-        img.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openLightbox(i);
-          }
-        });
-      });
+            function showNext() {
+                if (currentIndex < gifs.length - 1) {
+                    openLightbox(currentIndex + 1);
+                }
+            }
 
-      // Close lightbox on close button or backdrop click
-      closeBtn.addEventListener('click', closeLightbox);
-      lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) closeLightbox();
-      });
+            // Open lightbox on click or keyboard enter/space
+            gifs.forEach((img, i) => {
+                img.addEventListener('click', () => openLightbox(i));
+                img.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(i);
+                    }
+                });
+            });
 
-      // Navigation buttons
-      prevBtn.addEventListener('click', showPrev);
-      nextBtn.addEventListener('click', showNext);
+            // Close lightbox on close button or backdrop click
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', e => {
+                if (e.target === lightbox) closeLightbox();
+            });
 
-      // Keyboard navigation
-      document.addEventListener('keydown', e => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') showPrev();
-        if (e.key === 'ArrowRight') showNext();
-      });
+            // Navigation buttons
+            prevBtn.addEventListener('click', showPrev);
+            nextBtn.addEventListener('click', showNext);
 
-      // Swipe support (basic)
-      let touchStartX = 0;
-      let touchEndX = 0;
+            // Keyboard navigation
+            document.addEventListener('keydown', e => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+            });
 
-      lightbox.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
+            // Swipe support (basic)
+            let touchStartX = 0;
+            let touchEndX = 0;
 
-      lightbox.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchEndX < touchStartX - 40) showNext();
-        if (touchEndX > touchStartX + 40) showPrev();
-      });
-    })();
-  </script>
+            lightbox.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            lightbox.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 40) showNext();
+                if (touchEndX > touchStartX + 40) showPrev();
+            });
+        })();
+    </script>
 </body>
 </html>
