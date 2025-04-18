@@ -31,15 +31,9 @@
       margin: 0;
       font-weight: 700;
       font-size: 2.2rem;
-      color: #aaa;  /* Light grey color */
-      transition: color 0.3s ease; /* Hover transition */
     }
 
-    h1:hover {
-      color: black; /* Hover color */
-    }
-
-    /* Icons Styling */
+    /* Fixed icons  */
     .top-right-icons {
       display: flex;
       gap: 15px;
@@ -50,13 +44,13 @@
       display: inline-block;
       width: 28px;
       height: 28px;
-      color: #aaa;  /* Light grey color */
+      color: black;
       text-decoration: none;
-      transition: color 0.3s ease; /* Hover transition */
+      transition: color 0.3s ease;
     }
 
     .top-right-icons a:hover {
-      color: black; /* Hover color */
+      color: #555;
     }
 
     /* SVG icon styling */
@@ -107,16 +101,18 @@
       pointer-events: auto;
     }
 
-    /* Lightbox content - smaller max size */
+    /* Lightbox content - fixed square size */
     .lightbox-content {
-      max-width: 70%;  /* Reduced max width */
-      max-height: 70%;  /* Reduced max height */
+      width: 400px;       /* Fixed width */
+      height: 400px;      /* Fixed height (square) */
       position: relative;
     }
 
     .lightbox-content img {
       max-width: 100%;
       max-height: 100%;
+      width: 100%;    /* Fill the container */
+      height: 100%;   /* Fill the container */
       border-radius: 8px;
       display: block;
       user-select: none;
