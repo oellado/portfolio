@@ -7,54 +7,75 @@
   <link rel="preload" href="gifs/Avocado_500px.gif" as="image">
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       background-color: #fff;
       color: black;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .container {
       max-width: 1200px;
-      margin: 80px auto 20px; /* top margin to avoid fixed icons */
-      padding: 20px 5px; /* REVERTED to almost full extend, 5px margin */
+      margin: 20px auto;
+      padding: 0 5px;
+      flex: 1;
     }
 
-    /* Fixed top-left icon container */
-    .top-left-icons {
-      position: fixed;
-      top: 10px;
-      left: 10px;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      color: #aaa;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    h1:hover {
+      color: black;
+    }
+
+    h1 + p {
+      font-size: 0.8rem;
+      color: #ccc;
+      letter-spacing: 0.1em;
+      margin-top: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .top-right-icons {
       display: flex;
       gap: 15px;
       z-index: 1000;
     }
 
-    .top-left-icons a {
+    .top-right-icons a {
       display: inline-block;
       width: 28px;
       height: 28px;
-      color: black;
+      color: #aaa;
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
-    .top-left-icons a:hover {
-      color: #555;
+    .top-right-icons a:hover {
+      color: black;
     }
 
-    /* SVG icon styling */
-    .top-left-icons svg {
+    .top-right-icons svg {
       width: 100%;
       height: 100%;
       fill: currentColor;
-    }
-
-    /* Title below icons */
-    h1 {
-      margin: 0 0 20px 0;
-      font-weight: 700;
-      font-size: 2.2rem;
     }
 
     .gif-grid {
@@ -72,13 +93,13 @@
       background-color: #eee;
       object-fit: cover;
       transition: transform 0.3s ease;
+      font-size: 0; /* Hide alt text */
     }
 
     .gif-grid img:hover {
       transform: scale(1.05);
     }
 
-    /* Lightbox backdrop */
     .lightbox-backdrop {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -99,21 +120,23 @@
     }
 
     .lightbox-content {
-      max-width: 90vw;
-      max-height: 90vh;
+      width: 400px;
+      height: 400px;
       position: relative;
     }
 
     .lightbox-content img {
       max-width: 100%;
       max-height: 100%;
+      width: 100%;
+      height: 100%;
       border-radius: 8px;
       display: block;
       user-select: none;
       pointer-events: none;
+      object-fit: contain;
     }
 
-    /* Navigation buttons */
     .lightbox-nav {
       position: absolute;
       top: 50%;
@@ -145,7 +168,6 @@
       background: rgba(255,255,255,1);
     }
 
-    /* Close button */
     .lightbox-close {
       position: absolute;
       top: -50px;
@@ -168,39 +190,68 @@
     .lightbox-close:hover {
       background: rgba(255,255,255,1);
     }
+
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #ddd;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
   </style>
+  <script>
+    // Set the document title after page load
+    window.onload = function() {
+      document.title = "miguelgarest"; // Set your desired title here
+    };
+  </script>
 </head>
 <body>
 
-  <!-- Fixed icons top-left -->
-  <div class="top-left-icons" aria-label="Social links">
-    <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <!-- Instagram SVG icon -->
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
-      </svg>
-    </a>
-    <a href="mailto:hi@miguelgarest.com" aria-label="Email">
-      <!-- Email SVG icon -->
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
-      </svg>
-    </a>
-  </div>
-
   <div class="container">
-    <h1>miguelgarest</h1> <!-- Replace with your name -->
+    <header class="header">
+      <div>
+        <h1>MIGUELGAREST</h1>
+        <p>Animator/Illustrator</p>
+      </div>
+      <div class="top-right-icons" aria-label="Social links">
+        <a href="https://instagram.com/miguelgarest" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 1.5a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
+          </svg>
+        </a>
+        <a href="mailto:hi@miguelgarest.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
 
     <div class="gif-grid" role="list">
-      <!-- Add your GIFs here -->
-      <img src="gifs/Avocado_500px.gif" alt="GIF 0" loading="lazy" role="listitem" tabindex="0" />
-      <img src="gifs/banana_500px.gif" alt="GIF 1" loading="lazy" role="listitem" tabindex="0" />
-      <img src="gifs/Bob omb_500px.gif" alt="GIF 2" loading="lazy" role="listitem" tabindex="0" />
-      <img src="gifs/Boba_500px.gif" alt="GIF 5" loading="lazy" role="listitem" tabindex="0" />
-      <img src="gifs/Box game_500px.png" alt="GIF 0" loading="lazy" role="listitem" tabindex="0" />
-      <img src="gifs/Brushes_500px.gif" alt="GIF 1" loading="lazy" role="listitem" tabindex="0" />
-      <img src="gifs/Candy man_500px.png" alt="GIF 2" loading="lazy" role="listitem" tabindex="0" />
-           <!-- Add more GIFs as needed -->
+      <img src="gifs/Avocado_500px.gif" alt="Avocado" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/banana_500px.gif" alt="Banana" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Bob omb_500px.gif" alt="Bob omb" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Boba_500px.gif" alt="Boba" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Box game_500px.png" alt="Box game" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Brushes_500px.gif" alt="Brushes" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Candy man_500px.png" alt="Candy man" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Cherries_500px.gif" alt="Cherries" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Chicken egg_500px.gif" alt="Chicken egg" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Chocolate_500px.gif" alt="Chocolate" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/coconut_500px.gif" alt="Coconut" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Coffee cup slide_500px.gif" alt="Coffee cup slide" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Coffee_500px.gif" alt="Coffee" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Cow jump_500px.gif" alt="Cow jump" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Football_500px.gif" alt="Football" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Fried egg_500px.gif" alt="Fried egg" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Fuji beats_500px.gif" alt="Fuji beats" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Hands bracelets_500px.gif" alt="Hands bracelets" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Hands_500px.gif" alt="Hands" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/House animation_500px.gif" alt="House animation" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Infinite pencil_500px.gif" alt="Infinite pencil" loading="lazy" role="listitem" tabindex="0" />
+      <img src="gifs/Keyboard_500px.gif" alt="Keyboard" loading="lazy" role="listitem" tabindex="0" />
     </div>
   </div>
 
@@ -215,6 +266,10 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    © Miguelgarest, 2025.
+  </footer>
 
   <script>
     (function() {
