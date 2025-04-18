@@ -20,7 +20,7 @@ body {
 /* General container */
 .container {
   width: 100%;
-  max-width: 1200px; /* Bring back container constraint */
+  max-width: 1400px; /* Bring back container constraint */
   margin: 20px auto;
   padding: 0 20px;
   box-sizing: border-box;
