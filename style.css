@@ -39,13 +39,13 @@ h1 {
   font-weight: 700;
   font-size: 1.8rem;
   letter-spacing: 0.05em;
-  color: #aaa;
+  color: black;
   text-transform: uppercase;
   transition: color 0.3s ease;
 }
 
 h1:hover {
-  color: black;
+  color: #FF99DA;
 }
 
 h1 + p {
