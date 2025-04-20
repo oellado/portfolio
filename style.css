@@ -57,6 +57,11 @@ h1 + p {
   text-transform: uppercase;
 }
 
+.header h1 + p:hover {
+    color: #F8BEE7; 
+}
+
+
 /* Top Right Icons */
 .top-right-icons {
   display: flex;
