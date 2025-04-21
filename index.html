@@ -115,6 +115,15 @@
           lightbox.classList.remove('active');
         }
       });
+
+// Remove .html extension from URL
+      if (window.location.pathname.endsWith('.html')) {
+        const newURL = window.location.pathname.slice(0, -5); // Remove .html
+        window.history.replaceState({}, document.title, newURL); // Change URL
+      }
+
     </script>
   </body>
 </html>
+
+
