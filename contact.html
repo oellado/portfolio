@@ -113,5 +113,18 @@
       </div>
     </div>
     <footer>© Miguelgarest, 2025.</footer>
+
+<script>
+      // Remove .html extension from URL
+      if (window.location.pathname.endsWith('.html')) {
+        const newURL = window.location.pathname.slice(0, -5); // Remove .html
+        window.history.replaceState({}, document.title, newURL); // Change URL
+      }
+
+    // Disable right-click on all images to hide "Save image as"
+    document.querySelectorAll('img').forEach(img => {
+      img.oncontextmenu = e => e.preventDefault();
+      });
+    </script>
   </body>
 </html>
