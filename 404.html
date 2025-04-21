@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>miguelgarest</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .contact-container h1.number {
+        font-size: 4em; /* Smaller 404 */
+        font-weight: bold;
+        color: #ff99da;
+        margin-bottom: 0.2em; /* Space below */
+        line-height: 0.8;
+      }
+      .contact-container p.notfound {
+        font-size: 1.5em; /* Bigger Page Not Found */
+        font-weight: bold; /* Made it bold */
+        color: #ff99da; /* Bolder pink */
+        margin-top: 0;
+        margin-bottom: 0.5em; /* Added space below */
+      }
+      .contact-container img {
+        margin-bottom: 1em; /* Added more space between image and oops */
+      }
+      .contact-container p.oops {
+        font-size: 1em;
+        font-weight: bold; /* Made it bold */
+        color: #ccc; /* Lighter gray color */
+      }
+      .contact-container p.home a {
+        color: black; /* Black */
+        text-decoration: underline;
+        font-size: 1.2em; /* A bit bigger */
+      }
+      .contact-container p.home a:hover {
+        color: #bceaa2; /* Green hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div>
+          <a href="index.html" style="color: black; text-decoration: none">
+            <h1>MIGUELGAREST</h1>
+            <p>Animator/Illustrator</p>
+          </a>
+        </div>
+        <div class="top-right-icons" aria-label="Social links">
+          <a
+            href="index.html"
+            style="
+              color: black;
+              font-weight: bold;
+              text-decoration: underline;
+              font-size: 1.1em;
+            "
+            onmouseover="this.style.color='#FF99DA'"
+            onmouseout="this.style.color='black'"
+            >Main</a
+          >
+          <a
+            href="contact.html"
+            style="
+              color: black;
+              font-weight: bold;
+              text-decoration: underline;
+              font-size: 1.1em;
+            "
+            onmouseover="this.style.color='#FF99DA'"
+            onmouseout="this.style.color='black'"
+            >Contact</a
+          >
+        </div>
+      </header>
+      <div class="contact-container">
+        <h1 class="number">404</h1>
+        <p class="notfound">Page Not Found</p>
+        <img src="gifs/404.gif" alt="Page not found animation" />
+        <p class="oops">
+          Oops! We couldn't find the page you were looking for.
+        </p>
+        <p class="home"><a href="/">Return to Home</a></p>
+      </div>
+    </div>
+    <footer>© Miguelgarest, 2025.</footer>
+
+    <script>
+      // Remove .html extension from URL
+      if (window.location.pathname.endsWith('.html')) {
+        const newURL = window.location.pathname.slice(0, -5); // Remove .html
+        window.history.replaceState({}, document.title, newURL); // Change URL
+      }
+
+    // Disable right-click on all images to hide "Save image as"
+    document.querySelectorAll('img').forEach(img => {
+      img.oncontextmenu = e => e.preventDefault();
+      });
+    </script>
+  </body>
+</html>
