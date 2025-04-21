@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact - miguelgarest</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .contact-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+        text-align: center;
+      }
+
+      .contact-container img {
+        margin-bottom: 20px;
+        max-width: 276px; /* 230px + 20% of 230px = 276px */
+        height: auto;
+      }
+
+      .contact-container p.inquiry {
+        font-size: 1.2em;
+      }
+
+      .contact-container p.email a {
+        color: #ff99da; /* Initial color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-container p.email a:hover {
+        color: #BCEAA2; /* Color on hover */
+      }
+
+      .contact-container p.email {
+        font-size: 1em;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div>
+          <a href="index.html" style="color: black; text-decoration: none">
+            <h1>MIGUELGAREST</h1>
+            <p>Animator/Illustrator</p>
+          </a>
+        </div>
+        <div class="top-right-icons" aria-label="Social links">
+          <a
+            href="index.html"
+            onmouseover="this.style.color='#FF99DA'"
+            onmouseout="this.style.color='black'"
+            >Main</a
+          >
+          <a
+            href="contact.html"
+            onmouseover="this.style.color='#FF99DA'"
+            onmouseout="this.style.color='black'"
+            >Contact</a
+          >
+        </div>
+      </header>
+
+      <div class="contact-container">
+        <img src="gifs/30.gif" alt="Contact Image" />
+        <p style="font-size: 1.5em; font-weight: bold">
+          Miguelgarest is an animator and illustrator creating colorful,<br />
+          character-driven loops, gifs, and visuals
+        </p>
+        <p class="inquiry">for any inquiries:</p>
+        <p class="email">
+          <a
+            href="mailto:miguelgarest@gmail.com"
+          >
+            <b>miguelgarest@gmail.com</b>
+          </a>
+        </p>
+        <a
+          href="https://instagram.com/miguelgarest"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 25 25"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            onmouseover="this.style.fill='#FF99DA'"
+            onmouseout="this.style.fill='black'"
+          >
+            <path
+              d="M23.3051 6.77966C23.3051 3.97143 21.0286 1.69492 18.2203 1.69492H6.77966C3.97143 1.69492 1.69492 3.97143 1.69492 6.77966V18.2203C1.69492 21.0286 3.97143 23.3051 6.77966 23.3051H18.2203C21.0286 23.3051 23.3051 21.0286 23.3051 18.2203V6.77966ZM25 18.2203C25 21.9646 21.9646 25 18.2203 25H6.77966C3.03536 25 8.09172e-07 21.9646 0 18.2203V6.77966C0 3.03536 3.03536 1.53992e-07 6.77966 0H18.2203C21.9646 4.33835e-07 25 3.03536 25 6.77966V18.2203Z"
+              fill="black"
+            />
+            <path
+              d="M16.7373 12.5C16.7373 10.1598 14.8402 8.26271 12.5 8.26271C10.1598 8.26271 8.26271 10.1598 8.26271 12.5C8.26271 14.8402 10.1598 16.7373 12.5 16.7373C14.8402 16.7373 16.7373 14.8402 16.7373 12.5ZM18.4322 12.5C18.4322 15.7763 15.7763 18.4322 12.5 18.4322C9.22373 18.4322 6.5678 15.7763 6.5678 12.5C6.5678 9.22373 9.22373 6.5678 12.5 6.5678C15.7763 6.5678 18.4322 9.22373 18.4322 12.5Z"
+              fill="black"
+            />
+            <path
+              d="M17.5847 5.29661C17.5847 4.36053 18.3436 3.6017 19.2797 3.6017C20.2157 3.6017 20.9746 4.36053 20.9746 5.29661C20.9746 6.23269 20.2157 6.99153 19.2797 6.99153C18.3436 6.99153 17.5847 6.23269 17.5847 5.29661Z"
+              fill="black"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <footer>© Miguelgarest, 2025.</footer>
+  </body>
+</html>
