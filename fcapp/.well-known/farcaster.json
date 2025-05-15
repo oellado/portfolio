@@ -1,0 +1,13 @@
+{
+  "name": "Daily Vibe",
+  "short_name": "Vibe",
+  "description": "Let a random vibe guide your day and share it.",
+  "url": "https://miguelgarest.com/fcapp",
+  "icon": "https://miguelgarest.com/fc/0.gif",
+  "background_color": "#C6A9F2",
+  "theme_color": "#EAEAE8",
+  "splash": {
+    "image": "https://miguelgarest.com/fc/2.gif",
+    "background_color": "#EAEAE8"
+  }
+}
